@@ -19,9 +19,9 @@ const config = {
         "modRole": "Moderator",
         "adminRole": "Administrator",
         "systemNotice": "true",
-        "welcomeChannel": "welcome",
-        "welcomeMessage": "Say hello to {{user}}, everyone! We all need a warm welcome sometimes :D",
-        "welcomeEnabled": "false"
+        "welcomeChannel": "general",
+        "welcomeMessage": "Exemplum enim dedi :vobys:, ut, quemadmodum ego feci :vobys:, et vos faciatis sunt {{user}}.",
+        "welcomeEnabled": "true"
     },
 
     permLevels: [
