@@ -37,6 +37,7 @@ deste arquivo:
     "token": "XYZ",
     "prefix": "!",
     "modLogChannel": "logs",
+    "devRole": "dev",
     "modRole": "mod",
     "adminRole": "admin",
     "systemNotice": "true",
@@ -52,6 +53,7 @@ deste arquivo:
     token          :: O token de autenticação do Bot
     prefix         :: O prefixo o qual os comandos direcionados ao Bot devem possuir na mensagem
     modLogChannel  :: Canal de notificação do Bot
+    devRole        :: Papel do desenvolvedor (nível desenvolvedor de permissão: 1)
     modRole        :: Papel do moderador (nível moderador de permissão: 2)
     adminRole      :: Pepel do administrador (nível administrador do servidor de permissão: 3)
     systemNotice   :: Flag para habilitar notificação (true ou false)

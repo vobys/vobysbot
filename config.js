@@ -16,6 +16,7 @@ const config = {
     "defaultSettings": {
         "prefix": externalConfig.prefix,
         "modLogChannel": externalConfig.modLogChannel,
+        "devRole": externalConfig.devRole,
         "modRole": externalConfig.modRole,
         "adminRole": externalConfig.adminRole,
         "systemNotice": externalConfig.systemNotice,
@@ -29,6 +30,19 @@ const config = {
             level: 0,
             name: "User",
             check: () => true
+        },
+
+        {
+            level: 1,
+            name: "Developer",
+            check: (message) => {
+                try {
+                    const devRole = message.guild.roles.find(r => r.name.toLowerCase() === message.settings.devRole.toLowerCase());
+                    if (devRole && message.member.roles.has(devRole.id)) return true;
+                } catch (e) {
+                    return false;
+                }
+            }
         },
 
         {
