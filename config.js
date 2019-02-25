@@ -5,23 +5,23 @@ const config = {
     "ownerID": externalConfig.owner,
 
     // Bot Admins, level 9 by default. Array of user ID strings.
-    "admins": [],
+    "admins": externalConfig.admins,
 
     // Bot Support, level 8 by default. Array of user ID strings
-    "support": [],
+    "support": externalConfig.supports,
 
     // Your Bot's Token. Available on https://discordapp.com/developers/applications/me
     "token": externalConfig.token,
 
     "defaultSettings": {
         "prefix": externalConfig.prefix,
-        "modLogChannel": "mod-log",
-        "modRole": "Moderator",
-        "adminRole": "Administrator",
-        "systemNotice": "true",
-        "welcomeChannel": "general",
-        "welcomeMessage": "Exemplum enim dedi :vobys:, ut, quemadmodum ego feci :vobys:, et vos faciatis sunt {{user}}.",
-        "welcomeEnabled": "true"
+        "modLogChannel": externalConfig.modLogChannel,
+        "modRole": externalConfig.modRole,
+        "adminRole": externalConfig.adminRole,
+        "systemNotice": externalConfig.systemNotice,
+        "welcomeChannel": externalConfig.welcomeChannel,
+        "welcomeMessage": externalConfig.welcomeMessage,
+        "welcomeEnabled": externalConfig.welcomeEnabled
     },
 
     permLevels: [
