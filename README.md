@@ -4,9 +4,11 @@ Este é o **Bot** do **Vobys** no **Discord** utilizado para automatizar algumas
 
 Até o momento temos os seguintes comandos implementados.
 
+
 ### Command List
 
 Use `!vobys help <command name>` for details.
+
 ​
 #### Miscelaneous
 
@@ -16,6 +18,7 @@ Use `!vobys help <command name>` for details.
 | `!vobys ping`  | It like... Pings. Then Pongs. And it's not Ping Pong.             |
 | `!vobys stats` | Gives some useful bot statistics.                                 |
 ​
+
 #### System
 
 | Command          | Description                                                               |
@@ -23,6 +26,14 @@ Use `!vobys help <command name>` for details.
 | `!vobys help`    | Displays all the available commands for your permission level.            |
 | `!vobys reload`  | Reloads a command that"s been modified.                                   |
 | `!vobys restart` | Shuts down the bot. If running under PM2, bot will restart automatically. |
+
+
+#### Infrastructure
+
+| Command         | Description                                              |
+| --------------- | -------------------------------------------------------- |
+| `!vobys deploy` | Deploys the latest version in the specified environment. |
+
 
 ### Configurações
 
