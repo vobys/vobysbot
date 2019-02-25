@@ -1,0 +1,21 @@
+{
+    "name": "vobys-bot",
+    "version": "1.0.0",
+    "description": "Automation Bot of the Vobys",
+    "main": "index.js",
+    "scripts": {
+        "server": "node vobys.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "chalk": "^2.4.2",
+        "discord.js": "^11.4.2",
+        "enmap": "^4.8.1",
+        "moment": "^2.24.0",
+        "better-sqlite-pool": "^0.2.0",
+        "moment-duration-format": "^2.2.2"
+    }
+}
