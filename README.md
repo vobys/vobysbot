@@ -97,4 +97,4 @@ o **Artifactory**. A seguir um exemplo deste arquivo:
     token     :: O token de acesso a API
     url       :: A URL da API
     artifacts :: Identificação dos implatáveis a serem processados
-    script    :: O script a ser chamado com para processar a implantação (deve estar na pasta "scripts")
+    script    :: O script a ser chamado para processar a implantação (deve estar na pasta "scripts")
