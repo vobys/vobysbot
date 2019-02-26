@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 sleep 5s
-echo "$1 - $2"
+echo "Deploy to '$1 $2' -> $3 | $4"

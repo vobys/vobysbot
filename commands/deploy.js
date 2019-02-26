@@ -6,7 +6,10 @@ exports.run = async (client, message, args, level) => {
         return message.reply("Unknown environment to deploy: " + args[0] + " " + args[1]);
     }
 
-    const {spawn} = require('child_process'), cmd = spawn('scripts/deploy.sh', [args[0], args[1]]);
+    let bversion = await retrieveVersion(client.config.aurl, client.config.atoken, client.config.abrokera, client.config.abrokerg);
+    let fversion = await retrieveVersion(client.config.aurl, client.config.atoken, client.config.afolhaa, client.config.afolhag);
+
+    const {spawn} = require('child_process'), cmd = spawn('scripts/deploy.sh', [args[0], args[1], fversion, bversion]);
 
     cmd.stdout.on('data', data => {
         console.log(`stdout: ${data}`);
@@ -20,11 +23,32 @@ exports.run = async (client, message, args, level) => {
         console.log(`child process exited with code ${code}`);
         // noinspection JSUnresolvedFunction
         message.channel.send(`= DEPLOY =
-• App Version    :: 1.4.1
-• Broker Version :: 1.1.0
-• Server         :: AWS Dev`, {code: "asciidoc"});
+• App Version    :: ${fversion}
+• Broker Version :: ${bversion}
+• Server         :: ${args[0]} ${args[1]}`, {code: "asciidoc"});
     });
 };
+
+function retrieveVersion(url, token, artifact, group) {
+    return new Promise((resolve, reject) => {
+        const request = require("request");
+        const options = {
+            method: 'GET',
+            url: url,
+            qs: {g: group, a: artifact},
+            headers: {'X-JFrog-Art-Api': token}
+        };
+        request(options, (error, response, body) => {
+            if (error || response.statusCode !== 200) {
+                reject(`An error was sent by Artifactory: \n${JSON.stringify(error)}`);
+            }
+
+            const artifacts = JSON.parse(body);
+            const version = artifacts.results[0].version;
+            resolve(version);
+        });
+    });
+}
 
 exports.conf = {
     enabled: true,

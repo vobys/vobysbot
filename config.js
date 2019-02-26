@@ -13,6 +13,14 @@ const config = {
     // Your Bot's Token. Available on https://discordapp.com/developers/applications/me
     "token": externalConfig.token,
 
+    // Artifactory Settings
+    "atoken": externalConfig.artifactory.token,
+    "aurl": externalConfig.artifactory.url,
+    "abrokera": externalConfig.artifactory.broker.artifact,
+    "abrokerg": externalConfig.artifactory.broker.group,
+    "afolhaa": externalConfig.artifactory.folha.artifact,
+    "afolhag": externalConfig.artifactory.folha.group,
+
     "defaultSettings": {
         "prefix": externalConfig.prefix,
         "modLogChannel": externalConfig.modLogChannel,
