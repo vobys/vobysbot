@@ -76,7 +76,7 @@ o **Artifactory**. A seguir um exemplo deste arquivo:
 {
     "artifactory": {
         "token": "XYZ",
-        "url": "https://artifactory/api/search/versions",
+        "url": "https://artifactory/api",
         "artifacts": [
             {
                 "artifact": "app1",
@@ -91,3 +91,8 @@ o **Artifactory**. A seguir um exemplo deste arquivo:
     }
 }
 ```
+
+    token     :: O token de acesso a API
+    url       :: A URL da API
+    artifacts :: Identificação (group e artifact) dos implatáveis a serem processados
+    script    :: O script a ser chamado com para processar a implantação (deve estar na pasta "scripts")
