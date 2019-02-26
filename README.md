@@ -66,3 +66,28 @@ deste arquivo:
     welcomeChannel :: Canal para a mensagem de boas-vindas
     welcomeMessage :: Mensagem de boas-vindas (use {{user}} para mencionar o novo usuário)
     welcomeEnabled :: Flag para habilitar a mensagem de boas-vindas (true ou false)
+
+#### Artifactory
+
+O mesmo arquivo de configuração da aplicação, `config.json`, também é usado para configurar a integração com
+o **Artifactory**. A seguir um exemplo deste arquivo:
+
+```json
+{
+    "artifactory": {
+        "token": "XYZ",
+        "url": "https://artifactory/api/search/versions",
+        "artifacts": [
+            {
+                "artifact": "app1",
+                "group": "org.app"
+            },
+            {
+                "artifact": "app2",
+                "group": "org.app"
+            }
+        ],
+        "script": "process.sh"
+    }
+}
+```
