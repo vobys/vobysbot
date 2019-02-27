@@ -2,8 +2,6 @@
 exports.run = async (client, message, args, level) => {
     if (!args || args.length < 2) {
         return message.reply("Must provide an environment to deploy.");
-    } else if (args[0] !== "AWS" || args[1] !== "Dev") {
-        return message.reply("Unknown environment to deploy: " + args[0] + " " + args[1]);
     } else {
         message.channel.send(":cyclone: Processing the request...");
     }
