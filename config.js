@@ -16,10 +16,8 @@ const config = {
     // Artifactory Settings
     "atoken": externalConfig.artifactory.token,
     "aurl": externalConfig.artifactory.url,
-    "abrokera": externalConfig.artifactory.broker.artifact,
-    "abrokerg": externalConfig.artifactory.broker.group,
-    "afolhaa": externalConfig.artifactory.folha.artifact,
-    "afolhag": externalConfig.artifactory.folha.group,
+    "aartifacts": externalConfig.artifactory.artifacts,
+    "ascript": externalConfig.artifactory.script,
 
     "defaultSettings": {
         "prefix": externalConfig.prefix,

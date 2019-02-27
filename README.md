@@ -80,13 +80,13 @@ o **Artifactory**. A seguir um exemplo deste arquivo:
         "artifacts": [
             {
                 "name": "App 01",
-                "artifact": "app1",
-                "group": "org.app"
+                "group": "org.app",
+                "id": "app1"
             },
             {
                 "name": "App 02",
-                "artifact": "app2",
-                "group": "org.app"
+                "group": "org.app",
+                "id": "app2"
             }
         ],
         "script": "process.sh"

@@ -4,12 +4,29 @@ exports.run = async (client, message, args, level) => {
         return message.reply("Must provide an environment to deploy.");
     } else if (args[0] !== "AWS" || args[1] !== "Dev") {
         return message.reply("Unknown environment to deploy: " + args[0] + " " + args[1]);
+    } else {
+        message.channel.send(":cyclone: Processing the request...");
     }
 
-    let bversion = await retrieveVersion(client.config.aurl, client.config.atoken, client.config.abrokera, client.config.abrokerg);
-    let fversion = await retrieveVersion(client.config.aurl, client.config.atoken, client.config.afolhaa, client.config.afolhag);
+    const artifacts = client.config.aartifacts;
 
-    const {spawn} = require('child_process'), cmd = spawn('scripts/deploy.sh', [args[0], args[1], fversion, bversion]);
+    const versions = await Promise.all(artifacts.map(async (artifact) => {
+        return await retrieveVersion(client.config.aurl, client.config.atoken, artifact.id, artifact.group);
+    }));
+
+    const names = artifacts.map((artifact) => {
+        let name = artifact.name + " Version";
+        return name.padEnd(20);
+    });
+
+    let versionsInfo = "";
+    for (let i = 0; i < names.length; i++) {
+        versionsInfo = versionsInfo + `• ${names[i]} :: ${versions[i]}
+`;
+    }
+
+    const {spawn} = require('child_process'),
+            cmd = spawn('scripts/' + client.config.ascript, [args[0], args[1]].concat(versions));
 
     cmd.stdout.on('data', data => {
         console.log(`stdout: ${data}`);
@@ -23,9 +40,7 @@ exports.run = async (client, message, args, level) => {
         console.log(`child process exited with code ${code}`);
         // noinspection JSUnresolvedFunction
         message.channel.send(`= DEPLOY =
-• App Version    :: ${fversion}
-• Broker Version :: ${bversion}
-• Server         :: ${args[0]} ${args[1]}`, {code: "asciidoc"});
+${versionsInfo}• Server               :: ${args[0]} ${args[1]}`, {code: "asciidoc"});
     });
 };
 
@@ -34,7 +49,7 @@ function retrieveVersion(url, token, artifact, group) {
         const request = require("request");
         const options = {
             method: 'GET',
-            url: url,
+            url: url + '/search/versions',
             qs: {g: group, a: artifact},
             headers: {'X-JFrog-Art-Api': token}
         };
