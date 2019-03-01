@@ -4,31 +4,31 @@ Este é o **Bot** do **Vobys** no **Discord** utilizado para automatizar algumas
 
 Até o momento temos os seguintes comandos implementados.
 
-### Command List
+### Lista de Comandos
 
-Use `!vobys help <command name>` for details.
+Use `!help <command name>` para mais detalhes.
 
-#### Miscelaneous
+#### Diverso
 
-| Command        | Description                                                       |
-| -------------- | ----------------------------------------------------------------- |
-| `!vobys auth`  | Tells you your permission level for the current message location. |
-| `!vobys ping`  | It like... Pings. Then Pongs. And it's not Ping Pong.             |
-| `!vobys stats` | Gives some useful bot statistics.                                 |
+| Comando  | Descrição                                            |
+| ---------| ---------------------------------------------------- |
+| `!auth`  | Informa seu nível de permissão para o local atual.   |
+| `!ping`  | Um simples Ping. Então Pong. E isso não é Ping Pong. |
+| `!stats` | Dá algumas estatísticas úteise em relação ao Bot.    |
 
-#### System
+#### Sistema
 
-| Command          | Description                                                               |
-| ---------------- | ------------------------------------------------------------------------- |
-| `!vobys help`    | Displays all the available commands for your permission level.            |
-| `!vobys reload`  | Reloads a command that"s been modified.                                   |
-| `!vobys restart` | Shuts down the bot. If running under PM2, bot will restart automatically. |
+| Comando    | Descrição                                                                                  |
+| ---------- | ------------------------------------------------------------------------------------------ |
+| `!help`    | Mostra os comandos disponíveis para o seu nível de permissão.                              |
+| `!reload`  | Recarrega um comando específico que tenha sido modificado.                                 |
+| `!restart` | Desliga o Bot. Se o Bot estiver executando sobre PM2, ele será reiniciado automaticamente. |
 
-#### Infrastructure
+#### Infraestrutura
 
-| Command         | Description                                              |
-| --------------- | -------------------------------------------------------- |
-| `!vobys deploy` | Deploys the latest version in the specified environment. |
+| Comando   | Descrição                                                                     |
+| --------- | ----------------------------------------------------------------------------- |
+| `!deploy` | Implanta a última versão dos implantáveis definidos no ambiente especificado. |
 
 ### Configurações
 
