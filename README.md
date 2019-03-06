@@ -98,3 +98,25 @@ o **Artifactory**. A seguir um exemplo deste arquivo:
     url       :: A URL da API
     artifacts :: Identificação dos implatáveis a serem processados
     script    :: O script a ser chamado para processar a implantação (deve estar na pasta "scripts")
+
+### Gerando Imagem Docker
+
+Na raiz do projeto execute os seguintes comandos:
+
+```bash
+docker build -t vobysbot .
+```
+
+### Executando a Imagem Docker
+
+O seguinte comando executará o **Bot** com o `pm2-runtime`:
+
+```bash
+docker run -p 80:8000 vobysbot
+```
+
+Para sobrescrever as configurações com o seu próprio arquivo `config.json`, execute o seguinte comando:
+
+```bash
+docker run -p 80:8000 -v <CAMINHO PARA O SEU CONFIG.JSON>:/config.json vobysbot
+```
