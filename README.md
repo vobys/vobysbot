@@ -6,7 +6,7 @@ Até o momento temos os seguintes comandos implementados.
 
 ### Lista de Comandos
 
-Use `!help <command name>` para mais detalhes.
+Use `!help [command name]` para mais detalhes.
 
 #### Diverso
 
@@ -118,5 +118,33 @@ docker run -p 80:8000 vobysbot
 Para sobrescrever as configurações com o seu próprio arquivo `config.json`, execute o seguinte comando:
 
 ```bash
-docker run -p 80:8000 -v <CAMINHO PARA O SEU CONFIG.JSON>:/config.json vobysbot
+docker run -p 80:8000 -v [CAMINHO PARA O SEU CONFIG.JSON]:/config.json vobysbot
+```
+
+### Comandos PM2
+
+Comandos PM2 podem ser usados dentro do _container_ através dos seguintes comandos **Docker**:
+
+#### Monitoring CPU/Usage of each Process
+
+```bash
+docker exec -it [container-id] pm2 monit
+```
+
+#### Listing Managed Processes
+
+```bash
+docker exec -it [container-id] pm2 list
+```
+
+#### Get more Information about a Process
+
+```bash
+docker exec -it [container-id] pm2 show [process-id]
+```
+
+#### 0sec Downtime Reload All Applications
+
+```bash
+docker exec -it [container-id] pm2 reload all
 ```
