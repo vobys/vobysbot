@@ -125,25 +125,25 @@ docker run -p 80:8000 -v [CAMINHO PARA O SEU CONFIG.JSON]:/config.json vobysbot
 
 Comandos PM2 podem ser usados dentro do _container_ através dos seguintes comandos **Docker**:
 
-#### Monitoring CPU/Usage of each Process
+#### Monitorando CPU/Uso de cada Processo
 
 ```bash
 docker exec -it [container-id] pm2 monit
 ```
 
-#### Listing Managed Processes
+#### Listando Processos Gerenciados
 
 ```bash
 docker exec -it [container-id] pm2 list
 ```
 
-#### Get more Information about a Process
+#### Obter mais Informações sobre um Processo
 
 ```bash
 docker exec -it [container-id] pm2 show [process-id]
 ```
 
-#### 0sec Downtime Reload All Applications
+#### Recarregar Todas Aplicações com 0s de Downtime
 
 ```bash
 docker exec -it [container-id] pm2 reload all
