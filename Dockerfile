@@ -1,9 +1,13 @@
 FROM arm64v8/node:alpine
 LABEL maintainer="Alfredo Foltran <alfoltran@gmail.com>"
 
+# https://github.com/npm/uid-number/issues/3
+RUN npm config set unsafe-perm true
+
 # Install pm2
 RUN npm install pm2@3.3.1 -g
 
+# Setting local for bot
 WORKDIR /opt/bot
 
 # Bundle APP files
