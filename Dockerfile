@@ -27,6 +27,8 @@ RUN apk add --no-cache --virtual .gyp \
 # Expose the listening port of your app
 EXPOSE 8000
 
+VOLUME /scripts
+
 # Show current folder structure in logs
 RUN ls -al -R
 
