@@ -14,6 +14,7 @@ COPY scripts scripts/
 COPY config.js .
 COPY ecosystem.config.js .
 COPY package.json .
+COPY package-lock.json .
 COPY vobys.js .
 
 # Install app dependencies
