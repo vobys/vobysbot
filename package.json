@@ -1,6 +1,6 @@
 {
     "name": "vobys-bot",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Automation Bot of the Vobys",
     "main": "index.js",
     "scripts": {

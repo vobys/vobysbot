@@ -19,6 +19,11 @@ const config = {
     "aartifacts": externalConfig.artifactory.artifacts,
     "ascript": externalConfig.artifactory.script,
 
+    // Developer Commands
+    "developer": {
+        "log": externalConfig.devCommand.log
+    },
+
     "defaultSettings": {
         "prefix": externalConfig.prefix,
         "modLogChannel": externalConfig.modLogChannel,
