@@ -29,6 +29,7 @@ Use `!help [command name]` para mais detalhes.
 | Comando   | Descrição                                                                     |
 | --------- | ----------------------------------------------------------------------------- |
 | `!deploy` | Implanta a última versão dos implantáveis definidos no ambiente especificado. |
+| `!log`    | Recupera o `log` dos implantáveis definidos no ambiente especificado.         |
 
 ### Configurações
 
@@ -49,7 +50,10 @@ deste arquivo:
     "systemNotice": "true",
     "welcomeChannel": "welcome",
     "welcomeMessage": "Hello {{user}}.",
-    "welcomeEnabled": "false"
+    "welcomeEnabled": "false",
+    "devCommand": {
+        "log": "log.sh"
+    }
 }
 ```
 
@@ -66,6 +70,7 @@ deste arquivo:
     welcomeChannel :: Canal para a mensagem de boas-vindas
     welcomeMessage :: Mensagem de boas-vindas (use {{user}} para mencionar o novo usuário)
     welcomeEnabled :: Flag para habilitar a mensagem de boas-vindas (true ou false)
+    devCommand     :: Os scripts a serem chamados para processar o comando especificado (deve estar na pasta "scripts")
 
 #### Artifactory
 
@@ -98,6 +103,8 @@ o **Artifactory**. A seguir um exemplo deste arquivo:
     url       :: A URL da API
     artifacts :: Identificação dos implatáveis a serem processados
     script    :: O script a ser chamado para processar a implantação (deve estar na pasta "scripts")
+
+**Nota:** Configurações usadas especificamente pelo comando `deploy`.
 
 ### Gerando Imagem Docker
 
