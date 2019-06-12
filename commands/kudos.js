@@ -1,7 +1,7 @@
 // noinspection JSUnusedLocalSymbols
 exports.run = async (client, message, args, level) => {
     if (!args || args.length >= 2) {
-        let user = message.mentions.members.first();
+        let member = message.mentions.members.first();
         let kudos = args.slice(1).join(" ");
         message.channel.send({
             embed: {
@@ -14,7 +14,7 @@ exports.run = async (client, message, args, level) => {
                 url: "https://www.google.com/search?q=kudos+feedback",
                 description: "Real-time Continuous Peer Feedback",
                 fields: [{
-                    name: "Good Job " + user.nickname,
+                    name: "Good Job " + member.user.username,
                     value: kudos
                 }],
                 thumbnail: {
