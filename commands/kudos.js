@@ -7,8 +7,8 @@ exports.run = async (client, message, args, level) => {
             embed: {
                 color: 3447003,
                 author: {
-                    name: message.user.username,
-                    icon_url: message.user.avatarURL
+                    name: message.author.username,
+                    icon_url: message.author.avatarURL
                 },
                 title: "Kudos",
                 url: "https://www.google.com/search?q=kudos+feedback",
