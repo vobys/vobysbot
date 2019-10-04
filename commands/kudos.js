@@ -7,10 +7,10 @@ exports.run = async (client, message, args, level) => {
             embed: {
                 color: 3447003,
                 author: {
-                    name: message.author.username,
-                    icon_url: message.author.avatarURL
+                    name: member.user.username,
+                    icon_url: member.user.avatarURL
                 },
-                title: "Kudos",
+                title: "Congrats!",
                 url: "https://www.google.com/search?q=kudos+feedback",
                 description: "Real-time Continuous Peer Feedback",
                 fields: [{
@@ -24,7 +24,8 @@ exports.run = async (client, message, args, level) => {
                 },
                 timestamp: new Date(),
                 footer: {
-                    text: "© Vobys"
+                    text: message.author.username,
+                    icon_url: message.author.avatarURL
                 }
             }
         });
@@ -42,5 +43,5 @@ exports.help = {
     name: "kudos",
     category: "Miscelaneous",
     description: "Real-time Continuous Peer Feedback.",
-    usage: "kudos [name]"
+    usage: "kudos [user mention] [feedback text]"
 };
