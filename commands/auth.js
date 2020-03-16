@@ -1,18 +1,19 @@
 exports.run = async (client, message, args, level) => {
-    const friendly = client.config.permLevels.find(l => l.level === level).name;
-    message.reply(`Your permission level is: ${level} - ${friendly}`);
+  const friendly = client.config.permLevels.find(l => l.level === level).name;
+  await message.reply(`Your permission level is: ${level} - ${friendly}`);
 };
 
 exports.conf = {
-    enabled: true,
-    guildOnly: true,
-    aliases: [],
-    permLevel: "User"
+  enabled: true,
+  guildOnly: true,
+  aliases: [],
+  permLevel: "User"
 };
 
 exports.help = {
-    name: "auth",
-    category: "Miscelaneous",
-    description: "Tells you your permission level for the current message location.",
-    usage: "auth"
+  name: "auth",
+  category: "Miscelaneous",
+  description:
+    "Tells you your permission level for the current message location.",
+  usage: "auth"
 };
