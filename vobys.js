@@ -14,6 +14,7 @@ require("./modules/functions.js")(client);
 client.commands = new Enmap();
 client.aliases = new Enmap();
 client.settings = new Enmap({ name: "settings" });
+client.standup = new Enmap({ name: "standup" });
 
 const init = async () => {
   const cmdFiles = await readdir("./commands/");
