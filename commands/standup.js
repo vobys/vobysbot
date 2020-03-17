@@ -12,7 +12,7 @@ exports.run = async (client, message, args, _) => {
   } else if (args && message.guild) {
     const member = message.author.username;
     const text = args.join(" ");
-    const key = `${message.guild.id}-${
+    const key = `${message.guild.id}-${message.channel.name}-${
       message.author.id
     }-${new Date().getDate()}`;
     client.standup.ensure(key, {
@@ -21,6 +21,7 @@ exports.run = async (client, message, args, _) => {
       member: member,
       text: text
     });
+    client.standup.set(key, text, "text");
     message.channel.send(`Report to member ${member} was saved!`);
   }
 };
