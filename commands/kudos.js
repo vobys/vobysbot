@@ -1,7 +1,7 @@
 exports.run = async (client, message, args, _) => {
-  if (!args || args.length >= 2) {
-    let member = message.mentions.members.first();
-    let kudos = args.slice(1).join(" ");
+  if (args && args.length >= 2) {
+    const member = message.mentions.members.first();
+    const kudos = args.slice(1).join(" ");
     message.channel.send({
       embed: {
         color: 3447003,
