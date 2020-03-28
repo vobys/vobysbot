@@ -1,9 +1,15 @@
 exports.run = async (client, message, args, _) => {
-  if (!args || args.length < 1) {
-    return message.reply("Must provide a country to retrieve.");
+  if (!args || args.length > 1) {
+    return message.reply("this is all your fault: too many parameters!");
   }
 
-  const data = await retrieveData(args[0]);
+  const data = await retrieveData(args.length > 0 ? args[0] : null).catch(
+    reason => {
+      if (reason && reason.message)
+        return message.reply(`we're doomed! ${reason.message}`);
+      return message.reply("I'm quite beside myself.");
+    }
+  );
 
   message.channel.send({
     embed: {
@@ -13,12 +19,15 @@ exports.run = async (client, message, args, _) => {
       description: "NovelCOVID API",
       fields: [
         {
-          name: data.country,
+          name: args.length > 0 ? data.country : "All Countries",
           value: `Cases: ${data.cases}\nDeaths: ${data.deaths}`
         }
       ],
       thumbnail: {
-        url: data.countryInfo.flag,
+        url:
+          args.length > 0
+            ? data.countryInfo.flag
+            : "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/237/globe-with-meridians_1f310.png",
         height: 84,
         width: 84
       },
@@ -36,7 +45,9 @@ exports.run = async (client, message, args, _) => {
       const request = require("request");
       const options = {
         method: "GET",
-        url: `https://corona.lmao.ninja/countries/${country}`
+        url: `https://corona.lmao.ninja/${
+          country ? "countries/" + country : "all"
+        }`
       };
       request(options, (error, response, body) => {
         if (error || response.statusCode !== 200) {
