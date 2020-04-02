@@ -7,3 +7,4 @@ services:
     volumes:
       - ./config.json:/opt/bot/config.json
       - ./scripts:/opt/bot/scripts
+      - ./data:/opt/bot/data
