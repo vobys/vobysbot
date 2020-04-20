@@ -45,7 +45,7 @@ exports.run = async (client, message, args, _) => {
       const request = require("request");
       const options = {
         method: "GET",
-        url: `https://corona.lmao.ninja/${
+        url: `https://corona.lmao.ninja/v2/${
           country ? "countries/" + country : "all"
         }`
       };
