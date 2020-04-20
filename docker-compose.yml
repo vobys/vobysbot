@@ -6,5 +6,6 @@ services:
       - "80:8000"
     volumes:
       - ./config.json:/opt/bot/config.json
+      - ./commands:/opt/bot/commands
       - ./scripts:/opt/bot/scripts
       - ./data:/opt/bot/data
