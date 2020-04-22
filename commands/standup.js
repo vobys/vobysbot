@@ -10,6 +10,13 @@ exports.run = async (client, message, args, _) => {
     );
     if (reports.length === 0) message.channel.send("No reports send yet!");
   } else if (args && message.guild) {
+    if (args.length === 1 && args[0] === "clear") {
+      client.standup
+        .findAll("channel", message.channel.name)
+        .filter(report => report.key.startsWith(`${message.guild.id}-`))
+        .forEach(report => client.standup.delete(report.key));
+    }
+
     const member = message.author.username;
     const text = args.join(" ");
     const key = `${message.guild.id}-${message.channel.name}-${
@@ -37,5 +44,5 @@ exports.help = {
   name: "standup",
   category: "Development",
   description: "Asynchronous standup meeting report.",
-  usage: "standup [report text]"
+  usage: "standup [clear|report text]"
 };
