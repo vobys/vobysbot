@@ -11,25 +11,23 @@ exports.run = async (client, message, args, _) => {
     if (reports.length === 0) message.channel.send("No reports send yet!");
   } else if (args && message.guild) {
     if (args.length === 1 && args[0] === "clear") {
-      client.standup
-        .findAll("channel", message.channel.name)
-        .filter(report => report.key.startsWith(`${message.guild.id}-`))
-        .forEach(report => client.standup.delete(report.key));
+      client.standup.deleteAll();
+      message.channel.send(`All reports have been removed!`);
+    } else {
+      const member = message.author.username;
+      const text = args.join(" ");
+      const key = `${message.guild.id}-${message.channel.name}-${
+        message.author.id
+      }-${new Date().getDate()}`;
+      client.standup.ensure(key, {
+        day: new Date().getDate(),
+        channel: message.channel.name,
+        member: member,
+        text: text
+      });
+      client.standup.set(key, text, "text");
+      message.channel.send(`Report to member ${member} was saved!`);
     }
-
-    const member = message.author.username;
-    const text = args.join(" ");
-    const key = `${message.guild.id}-${message.channel.name}-${
-      message.author.id
-    }-${new Date().getDate()}`;
-    client.standup.ensure(key, {
-      day: new Date().getDate(),
-      channel: message.channel.name,
-      member: member,
-      text: text
-    });
-    client.standup.set(key, text, "text");
-    message.channel.send(`Report to member ${member} was saved!`);
   }
 };
 
